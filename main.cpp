@@ -8,10 +8,10 @@ int main(int argc, char **argv)
         "\n\tThis tool has basic CRUD capabilities:\n\
         -h, --help                                       : Display this message\n\
         -v, --version                                    : Display version info\n\
-        -r [<filename>, ...], --read=[<filename>, ...]   : Read file <filename>.txt\n\
-        -c [<filename>, ...], --create=[<filename>, ...] : Create file <filename>.txt\n\
-        -u [<filename>, ...], --update=[<filename>, ...] : Update file <filename>.txt\n\
-        -d [<filename>, ...], --delete=[<filename>, ...] : Delete file <filename>.txt\n";
+        -r [<filename>, ...], --read=[<filename>, ...]   : Read specified files\n\
+        -c [<filename>, ...], --create=[<filename>, ...] : Create specified files\n\
+        -u [<filename>, ...], --update=[<filename>, ...] : Update specified files\n\
+        -d [<filename>, ...], --delete=[<filename>, ...] : Delete specified files\n";
 
     static struct option longOpts[] = {
         {"help", no_argument, 0, 'h'},
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
                 args = strtok(optarg, ",");
                 while (args != NULL)
                 {
-                    printf("Creating a file: %s.txt\n", args);
+                    printf("Creating a file: %s\n", args);
                     args = strtok(NULL, ",");
                 }
                 globalArgs.c_filename = true;
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
                 args = strtok(optarg, ",");
                 while (args != NULL)
                 {
-                    printf("Reading a file: %s.txt\n", args);
+                    printf("Reading a file: %s\n", args);
                     args = strtok(NULL, ",");
                 }
                 globalArgs.r_filename = true;
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
                 args = strtok(optarg, ",");
                 while (args != NULL)
                 {
-                    printf("Updating a file: %s.txt\n", args);
+                    printf("Updating a file: %s\n", args);
                     args = strtok(NULL, ",");
                 }
                 globalArgs.u_filename = true;
@@ -124,7 +124,7 @@ int main(int argc, char **argv)
                 args = strtok(optarg, ",");
                 while (args != NULL)
                 {
-                    printf("Deleting a file: %s.txt\n", args);
+                    printf("Deleting a file: %s\n", args);
                     args = strtok(NULL, ",");
                 }
                 globalArgs.d_filename = true;
